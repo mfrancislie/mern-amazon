@@ -58,7 +58,7 @@ const Home = () => {
                   <p>{product.name}</p>
                 </Link>
                 <p>
-                  <strong>${product.price}</strong>
+                  <strong>&#8369;{product.price}</strong>
                 </p>
                 <button>Add to cart</button>
               </div>

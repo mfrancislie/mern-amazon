@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-export const ProductScreen = () => {
+const Product = () => {
   const params = useParams();
   const { slug } = params;
 
@@ -10,3 +10,5 @@ export const ProductScreen = () => {
     </div>
   );
 };
+
+export default Product;
