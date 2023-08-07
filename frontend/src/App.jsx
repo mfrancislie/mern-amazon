@@ -9,17 +9,15 @@ function App() {
   return (
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
-        <header>
-          <Navbar bg="dark" variant="dark">
-            <Container>
-              <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
-              </LinkContainer>
-            </Container>
-          </Navbar>
-        </header>
-        <main>
+        <Navbar bg="dark" variant="dark">
           <Container>
+            <LinkContainer to="/">
+              <Navbar.Brand>amazona</Navbar.Brand>
+            </LinkContainer>
+          </Container>
+        </Navbar>
+        <main>
+          <Container className="mt-3">
             <Routes>
               <Route path="/product/:slug" element={<Product />} />
               <Route path="/" element={<Home />} />
