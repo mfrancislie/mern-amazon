@@ -1,5 +1,5 @@
 import { useContext, useEffect, useReducer } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { getError } from '../utils';
 import { LoadingBox, MessageBox, Rating } from '../components';
@@ -13,6 +13,7 @@ import { Helmet } from 'react-helmet-async';
 import { Store } from '../Store';
 
 const Product = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -57,7 +58,6 @@ const Product = () => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
 
-  console.log(cart);
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
@@ -72,6 +72,8 @@ const Product = () => {
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
+
+    navigate('/cart');
   };
 
   return loading ? (
